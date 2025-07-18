@@ -3,6 +3,7 @@
 ##  Topics Covered
 
 ### Linked List
+- [x] Reversing Double Linked List
 - [x] Cycle Detection using Hashing (Brute Force)
 - [x] Floyd’s Cycle Detection Algorithm (Tortoise & Hare)
   - Understood logic of `slow == fast` and finding cycle start (entry pointer)
