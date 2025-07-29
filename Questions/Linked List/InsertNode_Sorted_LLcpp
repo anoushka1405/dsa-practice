@@ -1,0 +1,20 @@
+Node* insertSorted(Node* head, int val) {
+    Node* newNode = new Node(val);
+
+    // Case 1: Insert at beginning or empty list
+    if (head == nullptr || val < head->data) {
+        newNode->next = head;
+        return newNode;
+    }
+
+    // Case 2: Traverse and insert at proper position
+    Node* curr = head;
+    while (curr->next != nullptr && curr->next->data < val) {
+        curr = curr->next;
+    }
+
+    newNode->next = curr->next;
+    curr->next = newNode;
+
+    return head;
+}
