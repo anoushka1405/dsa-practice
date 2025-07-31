@@ -1,0 +1,45 @@
+//Recursive Method
+ListNode* swapPairs(ListNode* head) {
+    if(head == nullptr || head->next == nullptr)
+        return head;
+
+    ListNode* node1 = head;
+    ListNode* node2 = head->next;
+
+    // Save the next pair's head before swapping
+    ListNode* nextPair = node2->next;
+
+    // Swap the current pair
+    node2->next = node1;
+    node1->next = swapPairs(nextPair);
+
+    return node2;
+}
+
+
+//Iterative method
+node* revPair(node* head) {
+    node dummy(0);         // Dummy node before head
+    dummy.next = head;
+
+    node* prev = &dummy;
+
+    while (head && head->next) {
+        node* first = head;
+        node* second = head->next;
+
+        // Save what's after this pair
+        node* next_pair = second->next;
+
+        // Swap
+        prev->next = second;
+        second->next = first;
+        first->next = next_pair;
+
+        // Move forward
+        prev = first;
+        head = next_pair;
+    }
+
+    return dummy.next;
+}
